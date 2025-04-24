@@ -1,17 +1,17 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 public class HideandPeek implements MouseListener, MouseMotionListener
 {
-
+    private Hider[] hiders = new Hider[3];
     private HideandPeekViewer window;
-    window = new HideandPeekViewer(this);
 
     public HideandPeek()
     {
-
-
+        window = new HideandPeekViewer(this);
+        window.repaint();
     }
 
 
@@ -56,7 +56,7 @@ public class HideandPeek implements MouseListener, MouseMotionListener
     {
 
     }
-    public static main (String[] args)
+    public static void main (String[] args)
     {
         HideandPeek newGame = new HideandPeek();
 
