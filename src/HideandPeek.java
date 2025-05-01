@@ -24,6 +24,22 @@ public class HideandPeek implements MouseListener, MouseMotionListener
         hiders.add(one);
         hiders.add(two);
         hiders.add(three);
+        HidingSpots tube = new HidingSpots();
+        HidingSpots slide = new HidingSpots();
+        HidingSpots tower = new HidingSpots();
+        HidingSpots igloo = new HidingSpots();
+        HidingSpots statue = new HidingSpots();
+        HidingSpots car = new HidingSpots();
+        HidingSpots plane = new HidingSpots();
+        hidingSpots.add(tube);
+        hidingSpots.add(slide);
+        hidingSpots.add(tower);
+        hidingSpots.add(igloo);
+        hidingSpots.add(statue);
+        hidingSpots.add(car);
+        hidingSpots.add(plane);
+
+
 
     }
 
