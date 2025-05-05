@@ -19,11 +19,13 @@ public class HideandPeekViewer extends JFrame
 
     public void paint(Graphics g)
     {
-        g.drawImage(background, 0,0, 1430,800, this);
+        int count = 0;
+        // g.drawImage(background, 0,0, 1430,800, this);
         ArrayList<HidingSpots> newHidingSpots = game.getHidingSpots();
-        for(int i = 0; i < newHidingSpots.size(); i++)
+        for(HidingSpots hs : game.getHidingSpots())
         {
-            newHidingSpots.get(i).draw(g, i);
+            hs.draw(g,count);
+            count++;
         }
     }
 }

@@ -21,6 +21,9 @@ public class HideandPeek implements MouseListener, MouseMotionListener
         Hider one = new Hider("Hider 1", window);
         Hider two = new Hider("Hider 2", window);
         Hider three = new Hider("Hider 3", window);
+        gethiderImage(one);
+        gethiderImage(one);
+        gethiderImage(one);
         hiders.add(one);
         hiders.add(two);
         hiders.add(three);
@@ -45,7 +48,10 @@ public class HideandPeek implements MouseListener, MouseMotionListener
         hidingSpots.add(statue);
         hidingSpots.add(car);
         hidingSpots.add(plane);
+//        window.repaint();
         window.repaint();
+
+        // if ()
     }
 
 
@@ -99,7 +105,7 @@ public class HideandPeek implements MouseListener, MouseMotionListener
     public void gethiderImage(Hider hider)
     {
         int num = (int)((Math.random() * 3) + 1);
-        hider.setImage(hiderImages.get(num));
+        // hider.setImage(hiderImages.get(num));
     }
 
     public ArrayList<HidingSpots> getHidingSpots() {
