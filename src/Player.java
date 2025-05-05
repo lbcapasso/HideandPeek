@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 import java.awt.*;
 
@@ -6,17 +7,16 @@ public class Player
     private int guessesLeft;
     private String name;
     private Scanner input = new Scanner(System.in);
-    int lookGetter;
     private Image look;
     public Player()
     {
         name = input.nextLine();
         guessesLeft = 5;
-        lookGetter = getLook();
+        look = getLook();
     }
 
-    public int getLook()
+    public Image getLook()
     {
-        return (int)((Math.random() * 4) + 1);
+        return new ImageIcon("Resources/Miis/thinking Mii.jpg").getImage();
     }
 }

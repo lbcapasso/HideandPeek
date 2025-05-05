@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class HideandPeekViewer extends JFrame
 {
@@ -19,5 +20,10 @@ public class HideandPeekViewer extends JFrame
     public void paint(Graphics g)
     {
         g.drawImage(background, 0,0, 1430,800, this);
+        ArrayList<HidingSpots> newHidingSpots = game.getHidingSpots();
+        for(int i = 0; i < newHidingSpots.size(); i++)
+        {
+            newHidingSpots.get(i).draw(g, i);
+        }
     }
 }
