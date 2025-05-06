@@ -27,6 +27,6 @@ public class HidingSpots
 
     public void draw(Graphics g, int i)
     {
-        g.drawImage(look, 10 +(200 * i), 600, 200, 150, window);
+        g.drawImage(look, 10 +(200 * i), 400, 200, 150, window);
     }
 }

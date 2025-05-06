@@ -11,7 +11,6 @@ public class Hider
 
     public Hider(String newName, HideandPeekViewer w)
     {
-        int lookFinder = (int)(Math.random() * 4 + 1);
         found = false;
         name = newName;
         window = w;
@@ -27,15 +26,16 @@ public class Hider
         this.found = found;
     }
 
-    public void draw(Graphics g)
+    public void draw(Graphics g, int i)
     {
-        g.drawImage(look, 100, 100,100, 100, window);
+        g.drawImage(look, 600 + (100 * i), 100,100, 100, window);
     }
 
     public void setImage(Image newLook)
     {
         look = newLook;
     }
+
 
 
 }
