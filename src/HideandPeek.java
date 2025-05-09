@@ -72,15 +72,18 @@ public class HideandPeek implements MouseListener, MouseMotionListener
         System.out.println("mouse was clicked");
         for (int i = 0; i < hidingSpots.size(); i++)
         {
-            if (hidingSpots.get(i).isClicked(e.getX(), e.getY()) && hidingSpots.get(i).isPlayerHiding())
+            if (hidingSpots.get(i).isClicked(e.getX(), e.getY()))
             {
-                hidingSpots.get(i).getPlayerHiding().setFound(true);
-                System.out.println("you found a hider");
-            }
-            else if (hidingSpots.get(i).isClicked(e.getX(), e.getY()) && !hidingSpots.get(i).isPlayerHiding())
-            {
-                player.lowerGuesses();
-                System.out.println("nobody was hiding");
+                if (hidingSpots.get(i).isPlayerHiding())
+                {
+                    hidingSpots.get(i).getPlayerHiding().setFound(true);
+                    System.out.println("you found a hider");
+                }
+                else
+                {
+                    player.lowerGuesses();
+                    System.out.println("nobody was hiding");
+                }
             }
         }
         window.repaint();

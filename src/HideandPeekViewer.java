@@ -25,8 +25,11 @@ public class HideandPeekViewer extends JFrame {
         }
         int count2 = 0;
         for (Hider h : game.getHiders()) {
-            h.draw(g, count2);
-            count2++;
+            if (h.isFound() == true)
+            {
+                h.draw(g, count2);
+                count2++;
+            }
         }
         g.setColor(Color.BLUE);
         g.drawString("Guesses", 690, 590);
