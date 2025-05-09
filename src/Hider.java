@@ -8,6 +8,7 @@ public class Hider
     private Scanner input = new Scanner(System.in);
     private HideandPeekViewer window;
     private Image look;
+    private boolean isHidden;
 
     public Hider(String newName, HideandPeekViewer w)
     {
@@ -24,6 +25,11 @@ public class Hider
     public void setFound(boolean found)
     {
         this.found = found;
+    }
+
+    public void Hide(HidingSpots i)
+    {
+        isHidden = true;
     }
 
     public void draw(Graphics g, int i)

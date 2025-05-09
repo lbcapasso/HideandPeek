@@ -1,22 +1,38 @@
 import javax.swing.*;
-import java.util.Scanner;
 import java.awt.*;
 
-public class Player
-{
+public class Player {
     private int guessesLeft;
     private String name;
-    private Scanner input = new Scanner(System.in);
     private Image look;
+
     public Player()
     {
-        name = input.nextLine();
-        guessesLeft = 5;
-        look = getLook();
+        this.name = "seeker";
+        this.guessesLeft = 5;
+        this.look = new ImageIcon("Resources/Miis/thinking Mii.jpg").getImage(); // Make sure this path is correct
+    }
+
+    public int getGuessesLeft()
+    {
+        return guessesLeft;
+    }
+
+    public void lowerGuesses()
+    {
+        if (guessesLeft > 0)
+        {
+            guessesLeft--;
+        }
     }
 
     public Image getLook()
     {
-        return new ImageIcon("Resources/Miis/thinking Mii.jpg").getImage();
+        return look;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

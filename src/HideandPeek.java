@@ -12,6 +12,7 @@ public class HideandPeek implements MouseListener, MouseMotionListener
     private ArrayList<Image> hiderImages = new ArrayList<Image>();
     private ArrayList<HidingSpots> hidingSpots = new ArrayList<HidingSpots>();
     private HideandPeekViewer window;
+    private Player player = new Player();
 
     public HideandPeek()
     {
@@ -54,8 +55,14 @@ public class HideandPeek implements MouseListener, MouseMotionListener
         hidingSpots.add(car);
         hidingSpots.add(plane);
         window.repaint();
-        System.out.println("The hiders have hidden");
-        window.repaint();
+        for(Hider H : hiders)
+        {
+            int i = (int)((Math.random() * 7 + 1));
+            H.Hide(hidingSpots.get(i));
+            hidingSpots.get(i).playerHid(H);
+        }
+
+
     }
 
 
@@ -63,6 +70,20 @@ public class HideandPeek implements MouseListener, MouseMotionListener
     public void mouseClicked(MouseEvent e)
     {
         System.out.println("mouse was clicked");
+        for (int i = 0; i < hidingSpots.size(); i++)
+        {
+            if (hidingSpots.get(i).isClicked(e.getX(), e.getY()) && hidingSpots.get(i).isPlayerHiding())
+            {
+                hidingSpots.get(i).getPlayerHiding().setFound(true);
+                System.out.println("you found a hider");
+            }
+            else if (hidingSpots.get(i).isClicked(e.getX(), e.getY()) && !hidingSpots.get(i).isPlayerHiding())
+            {
+                player.lowerGuesses();
+                System.out.println("nobody was hiding");
+            }
+        }
+        window.repaint();
     }
 
     @Override
@@ -120,6 +141,11 @@ public class HideandPeek implements MouseListener, MouseMotionListener
     public ArrayList<Hider> getHiders()
     {
         return hiders;
+    }
+
+    public Player getPlayer()
+    {
+        return player;
     }
 }
 
